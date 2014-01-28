@@ -9,7 +9,7 @@
 })
 
 (function ($) {
-    var config = $.extend(window.__hatenablog_show_same_category_entries, {
+    var defaultConfig = {
         parentSelector: 'article',
         maxEntries: 3, // or -1 for unlimited
         style: [
@@ -60,7 +60,8 @@
             '<% }) %>',
             '</div>'
         ].join('')
-    });
+    };
+    var config = $.extend(defaultConfig, window.__hatenablog_show_same_category_entries);
 
     var origin = location.protocol + '//' + location.host;
     var categoryMetas = $('meta[property="article:tag"]').toArray();
